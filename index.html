@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRC Omega Elektronik ID</title>
+<style>
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #eaf6ff;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Header */
+  header {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  header img {
+    width: 70px;
+    height: auto;
+    border-radius: 10px;
+  }
+  header h1 {
+    font-size: 20px;
+    margin: 0;
+  }
+
+  /* Hamburger Menu */
+  .menu-toggle {
+    font-size: 26px;
+    cursor: pointer;
+  }
+
+  nav {
+    display: none;
+    flex-direction: column;
+    background-color: #007bff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+  }
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 12px 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+  }
+  nav a:hover {
+    background-color: #0056b3;
+  }
+
+  /* Search Bar */
+  .search-bar {
+    background: white;
+    padding: 10px;
+    text-align: center;
+  }
+  .search-bar input {
+    width: 80%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+
+  /* Welcome */
+  .welcome {
+    text-align: center;
+    background: #ffffff;
+    padding: 15px;
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  /* Katalog */
+  .katalog {
+    background: #ffffff;
+    padding: 15px;
+    text-align: center;
+  }
+  .katalog ul {
+    list-style: none;
+    padding: 0;
+  }
+  .katalog li {
+    display: inline-block;
+    margin: 8px 12px;
+    background: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+  }
+
+  /* Product Section */
+  .product-section {
+    padding: 25px;
+    background: #fff;
+    margin: 10px;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .product-section h3 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: #007BFF;
+  }
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+  }
+  .product {
+    background: #f5f9ff;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.3s;
+    cursor: pointer;
+  }
+  .product:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  }
+  .product img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .product p {
+    margin: 5px 0;
+    font-weight: bold;
+  }
+
+  footer {
+    background:#007BFF;
+    color:white;
+    text-align:center;
+    padding:15px;
+    margin-top:30px;
+    border-top: 3px solid #0056b3;
+  }
+
+  /* Popup Detail Produk */
+  .popup {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+  }
+  .popup-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  }
+  .popup-content img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .popup-content h3 {
+    margin: 10px 0;
+    color: #007BFF;
+  }
+  .popup-content button {
+    background: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  .popup-content button:hover {
+    background: #0056b3;
+  }
+  .close-btn {
+    background: red;
+    margin-top: 10px;
+  }
+
+  @media (min-width: 700px) {
+    nav {
+      display: flex !important;
+      flex-direction: row;
+      position: static;
+      width: auto;
+      background: none;
+    }
+    nav a {
+      border: none;
+      padding: 10px 20px;
+    }
+    .menu-toggle {
+      display: none;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="omega.png" alt="Logo Omega Elektronik ID">
+  <h1>Omega Elektronik ID</h1>
+  <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+  <nav id="navMenu">
+    <a href="#speaker">Speaker Portable</a>
+    <a href="#ledtv">LED TV</a>
+    <a href="#ac">Air Conditioner</a>
+    <a href="#kipas">Kipas Angin</a>
+    <a href="#magicom">Magicom</a>
+    <a href="#kulkas">Kulkas</a>
+    <a href="#dispenser">Dispenser</a>
+  </nav>
+</header>
+
+<div class="search-bar">
+  <input type="text" placeholder="🔍 Cari produk...">
+</div>
+
+<div class="welcome">
+  🎉 Selamat Datang di SRC Omega Elektronik ID 🎉<br>
+  Elektronik Terlengkap dan Termurah!
+</div>
+
+<!-- Produk Section -->
+<h2 style="text-align:center; margin-top:20px;">Our Product</h2>
+
+<!-- SPEAKER PORTABLE -->
+<div id="speaker" class="product-section">
+  <h3>Speaker Portable</h3>
+  <div class="product-grid">
+    <div class="product" onclick="showPopup('Tanaka 8', 'https://via.placeholder.com/200')">
+      <img src="tanaka8.png"><p>Tanaka 8" Rp900.000</p>
+    </div>
+    <div class="product" onclick="showPopup('Tanaka 15', 'https://via.placeholder.com/200')">
+      <img src="tanaka 15.png"><p>Tanaka 15" Rp1.900.00</p>
+    </div>
+    <div class="product" onclick="showPopup('Noise 15', 'https://via.placeholder.com/200')">
+      <img src="899d.jpg"><p>Noise 15" Rp1.950.000</p>
+    </div>
+    <div class="product" onclick="showPopup('JBL Partybox 110', 'https://via.placeholder.com/200')">
+      <img src="jbl110.jpg"><p>JBL Partybox 110 Rp9.500.000</p>
+       </div>
+    <div class="product" onclick="showPopup('SPEAKER NIKO 15INCH', 'https://via.placeholder.com/200')">
+      <img src="1503.jpg"><p>SPEAKER NIKO 15" Rp1.500.000</p>
+       </div>
+    <div class="product" onclick="showPopup('SPEAKER DAT 15INCH', 'https://via.placeholder.com/200')">
+     <img src="1507.jpg"><p>SPEAKER DAT 15" Rp1.400.000</p>
+    </div>
+  </div>
+</div>
+
+<!-- LED TV -->
+<div id="ledtv" class="product-section">
+  <h3>LED TV</h3>
+  <div class="product-grid">
+    <div class="product" onclick="showPopup('Changhong 32 Android', 'https://via.placeholder.com/200')">
+      <img src="chg32.jpg"><p>Changhong 32" Rp1.950.000</p></div>
+    <div class="product" onclick="showPopup('Changhong 32 Android', 'https://via.placeholder.com/200')">
+      <img src="chg43.jpg"><p>changhong 43 Android Rp3.200.000</p></div>
+          <div class="product" onclick="showPopup('Changhong 32 Android', 'https://via.placeholder.com/200')">
+      <img src="chg55.jpg"><p>changhong 55 Rp5.100.000</p></div>
+    <div class="product" onclick="showPopup('LG 43 Smart TV', 'https://via.placeholder.com/200')">
+   <img src="43.jpg"><p>Xiaomi 32" Rp2.150.000</p></div>
+       <div class="product" onclick="showPopup('LG 43 Smart TV', 'https://via.placeholder.com/200')">
+   <img src="43.jpg"><p>Xiaomi 43" Rp2.150.000</p></div>
+          <div class="product" onclick="showPopup('LG 43 Smart TV', 'https://via.placeholder.com/200')">
+   <img src="55.jpg"><p>Xiaomi 55" Rp2.150.000</p></div>
+      
+  </div>
+</div>
+
+<!-- AC -->
+<div id="ac" class="product-section">
+  <h3>Air Conditioner</h3>
+  <div class="product-grid">
+    <div class="product" onclick="showPopup('SHARP AHA5BEY', 'https://via.placeholder.com/200')">
+      <img src="5bey.jpg"><p>AC SHARP 1/2PK + Pasang Rp3.300.000</p></div>
+    <div class="product" onclick="showPopup('LG H09TN4', 'https://via.placeholder.com/200')">
+      <img src="05tn.jpg"><p>AC LG 1/2PK + Pasang Rp3.700.000</p></div>
+          <div class="product" onclick="showPopup('SHARP AHA5BEY', 'https://via.placeholder.com/200')">
+      <img src="stp15.jpg"><p>AC DAIKIN 1/2PK + PASANG Rp4.000.000</p></div>
+    <div class="product" onclick="showPopup('LG H09TN4', 'https://via.placeholder.com/200')">
+      <img src="zn5.jpg"><p>AC PANASONIC 1/2PK + PASANG Rp4.100.000</p></div>
+  </div>
+</div>
+
+<!-- Popup Detail Produk -->
+<div id="popup" class="popup">
+  <div class="popup-content">
+    <img id="popupImg" src="">
+    <h3 id="popupTitle"></h3>
+    <button id="whatsappBtn">💬 Beli Sekarang</button>
+    <button class="close-btn" onclick="closePopup()">Tutup</button>
+  </div>
+</div>
+
+<footer>
+  © 2025 Omega Elektronik ID | All Rights Reserved
+</footer>
+
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById("navMenu");
+    menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+  }
+
+  function showPopup(productName, imgSrc) {
+    document.getElementById("popup").style.display = "flex";
+    document.getElementById("popupImg").src = imgSrc;
+    document.getElementById("popupTitle").innerText = productName;
+    document.getElementById("whatsappBtn").onclick = function() {
+      const message = encodeURIComponent("Halo, saya ingin membeli produk: " + productName);
+      window.open("https://wa.me/62895404019535?text=" + message, "_blank");
+    }
+  }
+
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+  }
+</script>
+
+</body>
+</html>
